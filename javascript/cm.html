@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p id="output"></p>
+    <button id ='btn1' onclick="">Click</button>
+    <script src="script/dom.js"></script> -->
+ 
+    <form id = "myform" novalidate >
+        <input type ='text' name = 'numericField' id = 'numericField'>
+        <br>
+        <br>
+        <input type="text" name="textField" id="txt1">
+        <br>
+        <br>
+        <input type="submit" value="submitBtn" value = 'Submit'>
+    </form>
+ 
+    <div id = 'info'></div>
+    <script>
+ 
+        function isNumber(valueToCheck) {
+            return !isNaN(valueToCheck)
+        }
+ 
+        window.onload = function(e){
+            var numeric = document.getElementById('numericField')
+            var submitForm = document.getElementById('submitBtn')
+ 
+            var info = document.getElementById('info')
+            var i = 0
+ 
+            numeric.onkeydown = function(evt){
+                if (!isNumber(String.fromCharCode(evt.which)) && evt.which !== 8 ) {
+                    info.innerHTML = 'Enter Numeric data only'
+                    this.style.backgroundColor = 'red'
+                    evt.preventDefault()
+                }
+                else{
+                    info.innerHTML = ''
+                    this.style.backgroundColor =  'aqua'
+                }
+            }
+        }
+    </script>
+</body>
+</html>
